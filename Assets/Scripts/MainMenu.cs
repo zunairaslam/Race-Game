@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+    public GameObject pauseMenuUI;
+    public GameObject playerUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,5 +62,37 @@ public class MainMenu : MonoBehaviour
 
     }
 
+    public void PauseMenu()
+    {
+        playerUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void Resume()
+    {
+        
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        playerUI.SetActive(true);
+
+    }
+
+    public void restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1f;
+    }
+
+    public void LoadMenu()
+    {
+        SceneManager.LoadScene("Garage Scene 1");
+        Time.timeScale = 1f;
+    }
+
+    public void ExitGame()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 
 }

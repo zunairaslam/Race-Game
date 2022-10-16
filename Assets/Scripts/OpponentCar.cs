@@ -23,7 +23,7 @@ public class OpponentCar : MonoBehaviour
         {
             Vector3 destinationDirection = destination - transform.position;
             destinationDirection.y = 0;
-            float destinationDistance = destinationDirection.magnitude;
+            float destinationDistance = destinationDirection.magnitude  ;
             if (destinationDistance >= breakSpeed)
             {
                 destinationReachred = false;
